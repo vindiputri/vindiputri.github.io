@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-vindi",
+  "version": "1.0.0",
+  "description": "Vindi's Portfolio Website with Tailwind CSS - Modern, Responsive, and SEO-Optimized",
+  "main": "script.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./styles.css -o ./output.css --watch",
+    "build": "tailwindcss -i ./styles.css -o ./output.css --minify"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "designer",
+    "developer",
+    "tailwind-css",
+    "responsive",
+    "seo-optimized"
+  ],
+  "author": "Vindi",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
+  }
+}

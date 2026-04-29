@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <!-- Meta Tags untuk SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saya adalah seorang website designer dan developer Gen Z dengan 4 tahun pengalaman membuat website yang visually stunning dan high-converting. Mari kita bangun sesuatu yang luar biasa!">
+    <meta name="keywords" content="website designer, web developer, design portofolio, Framer, Shopify, Showit">
+    <meta name="author" content="Vindi">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    
+    <!-- Open Graph Tags untuk Media Sosial -->
+    <meta property="og:title" content="Vindi | Website Designer & Developer">
+    <meta property="og:description" content="Gen Z website designer dengan 4 tahun pengalaman menciptakan website yang stunning dan high-converting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vindi.com">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vindi | Website Designer & Developer">
+    <meta name="twitter:description" content="Gen Z website designer dengan 4 tahun pengalaman.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://vindi.com">
+
+        <script>
+            tailwind.config = { darkMode: 'class' }
+        </script>
+        <!-- Apply saved theme (or system preference) immediately to avoid flash-of-incorrect-theme -->
+        <script>
+            (function(){
+                try {
+                    const saved = localStorage.getItem('theme');
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.add('dark');
+                    else document.documentElement.classList.remove('dark');
+                } catch (e) { /* ignore */ }
+            })();
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="output.css">
+        <link rel="stylesheet" href="styles.css">
+        <meta property="og:image" content="/social-preview.png">
+        <meta name="twitter:image" content="/social-preview.png">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vindi",
+      "url": "https://vindi.com",
+      "jobTitle": "Website Designer & Developer",
+      "description": "Website designer dan developer Gen Z dengan 4 tahun pengalaman",
+      "sameAs": ["https://instagram.com", "https://linkedin.com"],
+      "knowsAbout": ["Web Design", "Web Development", "UI/UX Design", "Framer", "Shopify", "Showit"]
+    }
+    </script>
+    
+    <title>Vindi | Website Designer & Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+                <style>
+                        /* Hero animation keyframes */
+                        @keyframes slideUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+                        @keyframes floaty { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+                        .hero-left { animation: slideUp 0.7s ease 0.12s both; }
+                        .hero-center { animation: slideUp 0.85s ease 0.18s both, floaty 6s ease-in-out 2s infinite; }
+                        .hero-right { animation: slideUp 0.7s ease 0.24s both; }
+                        .sr-only.focus:not(.sr-only) { position: fixed; left: 1rem; top: 1rem; z-index: 60; }
+
+                        /* Background: light mode = white; dark mode = gradient + vignette/panel */
+                        .hero {
+                            background-image: none;
+                            background-color: #ffffff;
+                            color: inherit;
+                        }
+
+                        /* Hero heading: use Montserrat for a condensed, geometric look similar to the provided image */
+                        .hero h1 {
+                            font-family: 'Montserrat', 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+                            font-weight: 700 !important;
+                            letter-spacing: -0.01em !important;
+                            line-height: 0.9 !important;
+                        }
+
+                        /* Navbar uses Poppins to match provided image (geometric sans) */
+                        .navbar-wrapper,
+                        .navbar-wrapper a,
+                        .nav-links a {
+                            font-family: 'Poppins', Inter, sans-serif;
+                        }
+
+                        .dark .hero {
+                            /* slightly darker vertical gradient to match reference */
+                            background-image: linear-gradient(180deg, #020202 0%, #1f1f1f 45%, #555555 100%);
+                            background-color: initial;
+                            color: #fff;
+                        }
+
+                        /* Rounded dark panel + vignette only visible in dark mode */
+                        .hero-panel,
+                        .hero-vignette { display: none; }
+                        .dark .hero-panel {
+                            position: absolute;
+                            left: 3%;
+                            right: 3%;
+                            bottom: -3rem;
+                            height: 14rem;
+                            border-radius: 2rem;
+                            background: linear-gradient(180deg, rgba(0,0,0,0.98), rgba(10,10,10,0.9));
+                            box-shadow: 0 48px 96px rgba(0,0,0,0.75), inset 0 20px 60px rgba(255,255,255,0.02);
+                            pointer-events: none;
+                            display: block;
+                        }
+                        .dark .hero-vignette {
+                            position: absolute;
+                            inset: 0;
+                            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 20%, rgba(0,0,0,0.25) 80%);
+                            mix-blend-mode: multiply;
+                            pointer-events: none;
+                            display: block;
+                        }
+
+                        /* Make Poppins the default site-wide font, overriding utility classes */
+                        body, .font-inter, .font-playfair, .font-cormorant, .font-sans, .font-serif {
+                            font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+                        }
+                        /* Explanatory text styling: match navbar's Poppins feel (size, weight, spacing)
+                           Applies to paragraphs, card bodies, and common text utility classes */
+                        p, .text-body, .text-body-lg, .text-body-sm, .about-content p, .service-card p, .project-card p, .contact-card p, li {
+                            font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+                            font-weight: 400 !important;
+                            font-size: 1rem !important; /* 16px */
+                            line-height: 1.6 !important;
+                            letter-spacing: 0.01em !important;
+                            color: inherit;
+                        }
+                        /* Slightly stronger weight for headings but keep Poppins */
+                        h1, h2, h3, h4, h5, h6, .h2, .h3-sm {
+                            font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+                            font-weight: 600 !important;
+                            letter-spacing: -0.01em !important;
+                        }
+                </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23fff'>V</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Vindi">
+</head>
+<body class="bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300 font-inter">
+  
+    <!-- Navigation -->
+    <nav class="sticky top-5 z-50 px-5 flex justify-center">
+        <div class="navbar-wrapper flex justify-between items-center bg-white/95 backdrop-blur-xl border border-gray-200 rounded-full py-4 px-10 gap-6 shadow-sm dark:bg-black/85 dark:border-gray-700 transition-all duration-300 w-full max-w-3xl">
+            <a href="/" class="font-inter text-xl md:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap tracking-tight">Vindi.</a>
+            <ul class="nav-links hidden md:flex list-none gap-6 items-center">
+                <li><a href="#about" class="font-inter text-body-sm text-gray-600 font-medium transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Tentang</a></li>
+                <li><a href="#projects" class="font-inter text-body-sm text-gray-600 font-medium transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Portofolio</a></li>
+                <li><a href="#services" class="font-inter text-body-sm text-gray-600 font-medium transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Layanan</a></li>
+                <li><a href="#contact" class="font-inter text-body-sm text-gray-600 font-medium transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Kontak</a></li>
+            </ul>
+            <button class="flex items-center justify-center bg-transparent border border-gray-300 rounded-full w-8 h-8 p-0 cursor-pointer text-gray-600 transition-all hover:text-gray-900 hover:border-gray-900 dark:border-gray-600 dark:hover:border-gray-300" id="themeToggle" aria-label="Toggle theme">
+                <svg class="sun-icon absolute w-4 h-4 opacity-100 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon absolute w-4 h-4 opacity-0 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="hidden flex-col bg-transparent border-0 cursor-pointer gap-1 md:hidden" id="menuToggle">
+                <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
+                <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
+                <span class="w-5 h-0.5 bg-gray-900 dark:bg-white transition-all"></span>
+            </button>
+        </div>
+    </nav>
+
+            <!-- Hero Section -->
+    <main id="main" role="main">
+    <section class="hero py-16 md:py-28 min-h-screen flex items-center relative overflow-hidden bg-white dark:bg-black">
+        <div class="container max-w-6xl mx-auto px-6 relative z-10">
+    
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_300px_1fr] items-center gap-6">
+
+    <!-- KIRI -->
+    <div class="flex flex-col justify-center hero-left">
+        <p class="text-xs tracking-[.4em] uppercase mb-3
+          text-pink-500 dark:text-neutral-500 flex items-center gap-2">
+          <span class="w-5 h-[1px] bg-current"></span>
+          Hello Saya
+        </p>
+
+                <h1 class="font-inter text-5xl md:text-[64px] leading-[0.9] mb-5
+          text-gray-900 dark:text-white">
+          Dwi<br>Vindi<br>Putri<br>Maulana
+        </h1>
+
+        <a href="#projects"
+  class="relative px-8 py-4 rounded-full text-xl font-semibold
+  text-white w-fit
+  bg-gradient-to-b from-gray-400 to-black
+  shadow-lg shadow-black/40
+  overflow-hidden
+  transition-all duration-300 hover:scale-[1.03]">
+
+  <span class="relative z-10">Lihat Portofolio</span>
+
+  <span class="absolute inset-0 bg-gradient-to-t from-transparent to-white/10 opacity-30"></span>
+</a>
+          
+      </div>
+
+            <!-- TENGAH -->
+            <div class="relative flex justify-center hero-center">
+                <div class="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06),transparent_40%)] blur-2xl"></div>
+                <img src="foto.png" class="relative z-10 w-[260px] h-[420px] object-cover object-top rounded-xl shadow-2xl" alt="Vindi Website Designer">
+            </div>
+
+            <!-- KANAN -->
+            <div class="flex flex-col justify-center border-l pl-6 hero-right border-purple-200/20 dark:border-white/[0.08]">
+
+        <span class="text-xs uppercase tracking-widest text-gray-300 mb-3">
+          Developer
+        </span>
+
+        <h2 class="text-sm leading-relaxed text-gray-900 dark:text-white mb-3">
+          Gen Z Developer yang menciptakan website
+          <span class="text-transparent bg-clip-text
+            bg-gradient-to-r from-pink-400 to-purple-300">
+            visually stunning
+          </span>
+          & high-converting
+        </h2>
+
+        <p class="text-sm text-gray-500 mb-6">
+          Dengan 4 tahun pengalaman, saya menggabungkan desain modern
+          dan strategi bisnis untuk hasil nyata.lorem iosum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate! lorem iosum dolor sit amet consectetur adipisicing elit. 
+        </p>
+      </div>
+
+        </div>
+    </div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+   
+</section>
+</main>
+
+    <!-- About Section -->
+    <section id="about" class="about pt-32 md:pt-44 pb-20 md:pb-32 bg-gray-100 dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800">
+        <div class="container max-w-7xl mx-auto px-5">
+            <h2 class="font-inter h2 md:text-h2 mb-12 text-center text-gray-900 dark:text-white">Tentang Saya</h2>
+            <div class="about-content max-w-3xl mx-auto flex flex-col gap-6">
+                <p class="font-inter text-body-lg text-gray-700 dark:text-gray-400">Saya adalah website designer dan developer dengan spesialisasi dalam menciptakan pengalaman digital yang tidak hanya indah secara visual tetapi juga mengkonversi pengunjung menjadi pelanggan. Dengan 4 tahun pengalaman di industri ini, saya telah membantu berbagai brand mengembangkan bisnis mereka melalui website yang strategis dan user-friendly.</p>
+                <p class="font-inter text-body-lg text-gray-700 dark:text-gray-400">Saya bekerja dengan berbagai platform populer termasuk Framer, Shopify, dan Showit, memastikan setiap project yang saya tangani mendapat perhatian khusus dan disesuaikan dengan kebutuhan bisnis klien.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services py-20 md:py-32 bg-white dark:bg-black">
+        <div class="container max-w-7xl mx-auto px-5">
+            <h2 class="font-inter h2 md:text-h2 mb-12 text-center text-gray-900 dark:text-white">Layanan Saya</h2>
+            <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-gray-50 border border-gray-200 p-8 rounded-2xl transition-all hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-1 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-4 text-gray-900 dark:text-white">Website Design</h3>
+                    <p class="font-inter text-body text-gray-700 dark:text-gray-400">Desain website yang stunning dan user-friendly dengan fokus pada konversi dan pengalaman pengguna yang optimal.</p>
+                </div>
+                <div class="service-card bg-gray-50 border border-gray-200 p-8 rounded-2xl transition-all hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-1 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-4 text-gray-900 dark:text-white">Web Development</h3>
+                    <p class="font-inter text-body text-gray-700 dark:text-gray-400">Mengembangkan website dengan teknologi terkini yang responsif, cepat, dan dioptimasi untuk SEO.</p>
+                </div>
+                <div class="service-card bg-gray-50 border border-gray-200 p-8 rounded-2xl transition-all hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-1 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-4 text-gray-900 dark:text-white">E-Commerce Solutions</h3>
+                    <p class="font-inter text-body text-gray-700 dark:text-gray-400">Membangun toko online di Shopify dengan desain yang menarik untuk meningkatkan penjualan Anda.</p>
+                </div>
+                <div class="service-card bg-gray-50 border border-gray-200 p-8 rounded-2xl transition-all hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-1 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-4 text-gray-900 dark:text-white">Landing Page</h3>
+                    <p class="font-inter text-body text-gray-700 dark:text-gray-400">Membuat landing page berkinerja tinggi yang dirancang untuk mengkonversi pengunjung menjadi leads atau pelanggan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects py-20 md:py-32 bg-gray-100 dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800">
+        <div class="container max-w-7xl mx-auto px-5">
+            <h2 class="font-inter h2 md:text-h2 mb-12 text-center text-gray-900 dark:text-white">Portofolio Terbaru</h2>
+            <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card rounded-2xl overflow-hidden transition-all cursor-pointer hover:shadow-xl bg-white dark:bg-black">
+                    <div class="project-image w-full h-64 bg-gradient-to-br from-purple-500 to-purple-800 transition-transform hover:scale-110"></div>
+                    <div class="p-6">
+                        <h3 class="font-inter h3-sm text-gray-900 dark:text-white">Project 1</h3>
+                        <p class="font-inter text-body-sm text-gray-600 mt-2 dark:text-gray-400">Deskripsi singkat project Anda di sini.</p>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl overflow-hidden transition-all cursor-pointer hover:shadow-xl bg-white dark:bg-black">
+                    <div class="project-image w-full h-64 bg-gradient-to-br from-pink-500 to-red-600 transition-transform hover:scale-110"></div>
+                    <div class="p-6">
+                        <h3 class="font-inter h3-sm text-gray-900 dark:text-white">Project 2</h3>
+                        <p class="font-inter text-body-sm text-gray-600 mt-2 dark:text-gray-400">Deskripsi singkat project Anda di sini.</p>
+                    </div>
+                </div>
+                <div class="project-card rounded-2xl overflow-hidden transition-all cursor-pointer hover:shadow-xl bg-white dark:bg-black">
+                    <div class="project-image w-full h-64 bg-gradient-to-br from-blue-400 to-cyan-500 transition-transform hover:scale-110"></div>
+                    <div class="p-6">
+                        <h3 class="font-inter h3-sm text-gray-900 dark:text-white">Project 3</h3>
+                        <p class="font-inter text-body-sm text-gray-600 mt-2 dark:text-gray-400">Deskripsi singkat project Anda di sini.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact py-20 md:py-32">
+        <div class="container max-w-7xl mx-auto px-5">
+            <h2 class="font-inter h2 md:text-h2 mb-6 text-center dark:text-white">Mari Kita Kolaborasi</h2>
+            <p class="font-inter text-body-lg text-center mb-12 max-w-2xl mx-auto text-gray-500 dark:text-gray-400">Siap untuk mengembangkan bisnis Anda? Mari kita bicarakan ide Anda dan ciptakan sesuatu yang luar biasa.</p>
+            <div class="contact-methods grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="mailto:hello@vindi.com" class="contact-card bg-white/5 border border-gray-800 p-8 rounded-2xl text-center transition-all hover:bg-white/10 hover:border-white hover:-translate-y-1 dark:bg-white/5 dark:border-gray-700 dark:hover:bg-white/10 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-2 text-white dark:text-white">Email</h3>
+                    <p class="font-inter text-body-sm text-gray-500 dark:text-gray-400">hello@vindi.com</p>
+                </a>
+                <a href="https://wa.me/62xxxxx" class="contact-card bg-white/5 border border-gray-800 p-8 rounded-2xl text-center transition-all hover:bg-white/10 hover:border-white hover:-translate-y-1 dark:bg-white/5 dark:border-gray-700 dark:hover:bg-white/10 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-2 text-white dark:text-white">WhatsApp</h3>
+                    <p class="font-inter text-body-sm text-gray-500 dark:text-gray-400">Hubungi saya</p>
+                </a>
+                <a href="#" class="contact-card bg-white/5 border border-gray-800 p-8 rounded-2xl text-center transition-all hover:bg-white/10 hover:border-white hover:-translate-y-1 dark:bg-white/5 dark:border-gray-700 dark:hover:bg-white/10 dark:hover:border-gray-500">
+                    <h3 class="font-inter h3-sm mb-2 text-white dark:text-white">Instagram</h3>
+                    <p class="font-inter text-body-sm text-gray-500 dark:text-gray-400">@vindi.asuncion</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer border-t border-gray-800 dark:border-gray-700 py-8 text-center text-gray-500 bg-gray-900 dark:bg-gray-900 dark:text-gray-400">
+        <div class="container max-w-7xl mx-auto px-5">
+            <p class="font-inter">&copy; 2024 Vindi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+  "name": "Vindi Asuncion - Website Designer & Developer",
+  "short_name": "Vindi",
+  "description": "Saya adalah seorang Gen Z website designer dengan 4 tahun pengalaman menciptakan website yang visually stunning dan high-converting.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ffffff",
+  "categories": ["business", "technology"],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/images/screenshot-2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Portofolio",
+      "short_name": "Portofolio",
+      "description": "Lihat semua project kami",
+      "url": "/#projects",
+      "icons": [{ "src": "/images/shortcut-projects.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Pesan Konsultasi",
+      "short_name": "Konsultasi",
+      "description": "Hubungi kami untuk konsultasi gratis",
+      "url": "/#contact",
+      "icons": [{ "src": "/images/shortcut-contact.png", "sizes": "96x96", "type": "image/png" }]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "screenshots_lang": "id-ID",
+  "prefer_related_applications": false,
+  "related_applications": []
+}
