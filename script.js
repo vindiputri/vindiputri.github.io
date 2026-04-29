@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlEl.classList.toggle('dark');
         localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
         updateIcons();
+        updateNavbarStyle();
     });
 
     // Mobile menu toggle (defensive)
@@ -60,15 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar-wrapper');
-    window.addEventListener('scroll', () => {
+    function updateNavbarStyle() {
         if (!navbar) return;
         const sc = window.scrollY;
         const isDark = htmlEl.classList.contains('dark');
         if (sc > 50) {
             navbar.style.backgroundColor = isDark ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.75)';
             navbar.style.backdropFilter = isDark ? 'blur(12px)' : 'blur(8px)';
-        } else { navbar.style.backgroundColor = ''; navbar.style.backdropFilter = ''; }
-    });
+        } else {
+            navbar.style.backgroundColor = '';
+            navbar.style.backdropFilter = '';
+        }
+    }
+    window.addEventListener('scroll', updateNavbarStyle);
+    updateNavbarStyle();
 
     // Smooth scroll for internal anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', function (e) {
